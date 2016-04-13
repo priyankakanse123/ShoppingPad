@@ -19,6 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgo-Vz-QHb">
+                                <rect key="frame" x="29" y="274" width="271" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pbT-2v-Gbi">
                                 <rect key="frame" x="0.0" y="103" width="320" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +127,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2bV-oP-hVP"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="39S-QR-Vhs">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="39S-QR-Vhs">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIS-7S-zwt">
@@ -137,6 +143,9 @@
                                     <segment title="Views"/>
                                     <segment title="Contacts"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="eWB-tn-eS4"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -146,10 +155,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pbT-2v-Gbi" secondAttribute="bottom" id="3m8-WD-rxI"/>
                             <constraint firstItem="pbT-2v-Gbi" firstAttribute="top" secondItem="M72-dL-23d" secondAttribute="bottom" constant="3" id="HpO-Ws-VWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LIS-7S-zwt" secondAttribute="trailing" constant="-20" id="Jfy-yw-fTC"/>
+                            <constraint firstItem="39S-QR-Vhs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="130" id="L5M-Ge-0MG"/>
                             <constraint firstItem="M72-dL-23d" firstAttribute="top" secondItem="LIS-7S-zwt" secondAttribute="bottom" constant="8" id="LAI-pU-V7b"/>
+                            <constraint firstItem="Wgo-Vz-QHb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="OO7-BU-oCt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M72-dL-23d" secondAttribute="trailing" constant="-7" id="OWS-lp-FiZ"/>
+                            <constraint firstItem="39S-QR-Vhs" firstAttribute="top" secondItem="M72-dL-23d" secondAttribute="bottom" constant="174" id="PnJ-jx-aXO"/>
+                            <constraint firstItem="Wgo-Vz-QHb" firstAttribute="top" secondItem="LIS-7S-zwt" secondAttribute="bottom" constant="210" id="Poo-h7-s1L"/>
                             <constraint firstItem="LIS-7S-zwt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QyP-tk-9Da"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="39S-QR-Vhs" secondAttribute="trailing" constant="130" id="VFg-md-mct"/>
                             <constraint firstItem="LIS-7S-zwt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="XCb-So-7Iy"/>
+                            <constraint firstItem="Wgo-Vz-QHb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cGo-cu-2Zb"/>
                             <constraint firstItem="pbT-2v-Gbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="s2t-Y3-iZt"/>
                             <constraint firstItem="M72-dL-23d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="zxp-ZM-Cta"/>
                         </constraints>
@@ -158,12 +173,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mActivityIndicator" destination="39S-QR-Vhs" id="60w-Pj-UfI"/>
+                        <outlet property="segmentStatusLabel" destination="Wgo-Vz-QHb" id="EcV-kp-Y5K"/>
+                        <outlet property="segmentedControl" destination="M72-dL-23d" id="xlh-av-S0K"/>
                         <outlet property="tableView" destination="pbT-2v-Gbi" id="q56-em-gGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="233"/>
+            <point key="canvasLocation" x="43" y="81"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="IiJ-uY-c9u">
@@ -193,6 +210,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTZ-d6-02o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224" y="982"/>
+        </scene>
+        <!--SimpleUI-->
+        <scene sceneID="eBu-t6-xmT">
+            <objects>
+                <viewController id="Lwm-O0-zOn" customClass="simpleUI" customModule="ShoppingPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LfB-6D-bW3"/>
+                        <viewControllerLayoutGuide type="bottom" id="3yt-p7-M3x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="asf-5v-uGc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Segment Selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnT-4z-Aj3">
+                                <rect key="frame" x="16" y="124" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BpU-Lf-iaN">
+                                <rect key="frame" x="101" y="221" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8DN-Mg-hqH">
+                                <rect key="frame" x="99" y="28" width="123" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="Lwm-O0-zOn" eventType="valueChanged" id="O4T-5N-nJG"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="8DN-Mg-hqH" id="oNj-DF-Zlu"/>
+                        <outlet property="textLabel" destination="OnT-4z-Aj3" id="zdW-dw-zcV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nRV-ep-Iai" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="375"/>
         </scene>
     </scenes>
     <resources>

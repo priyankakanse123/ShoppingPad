@@ -27,6 +27,79 @@ class ContentListViewController: UIViewController , ContentListViewObserver , UI
     // outlet of tableview
     @IBOutlet weak var tableView: UITableView!
     
+    // outlet of segment control
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // create outlet of label
+    @IBOutlet weak var segmentStatusLabel: UILabel!
+    
+    @IBAction func segmentedControl(sender: AnyObject)
+    {
+        // check the current status of segment control
+        
+        // if selected segment is equal to 0 i.e. contents selected
+        if segmentedControl.selectedSegmentIndex == 0
+        {
+            // hide segment label
+            segmentStatusLabel.hidden = true
+            
+            // check if tableview is present or not
+            if (tableView.hidden == true)
+            {
+                self.tableView.hidden = false
+            }
+        }
+        
+        // if selected segment is equal to 1 i.e. Views selected
+        if segmentedControl.selectedSegmentIndex == 1
+        {
+            // hide tableView
+            self.tableView.hidden = true
+            
+            // set the segmentStatusLabel label
+            segmentStatusLabel.hidden = false
+            segmentStatusLabel.text = "view selected"
+        }
+        switch segmentedControl.selectedSegmentIndex
+        {
+            // if selected segment is equal to 0 i.e. contents selected
+            case 0:
+                // hide segmentStatusLabel label
+                segmentStatusLabel.hidden = true
+                
+                // check if tableview is present or not
+                if (tableView.hidden == true)
+                {
+                    self.tableView.hidden = false
+                }
+            
+            // if selected segment is equal to 1 i.e. Views selected
+            case 1:
+                // hide tableView
+                self.tableView.hidden = true
+            
+                // set the segmentStatusLabel label
+                segmentStatusLabel.hidden = false
+                segmentStatusLabel.text = "view selected"
+
+            // if selected segment is equal to 2 i.e. Contacts selected
+            case 2:
+                // hide tableView
+                self.tableView.hidden = true
+            
+                // set the segmentStatusLabel label
+                segmentStatusLabel.hidden = false
+                segmentStatusLabel.text = "contacts selected"
+
+            default:
+                break;
+        }
+        
+        
+        
+        
+    }
+    
     // create outlet of segment control
     //@IBOutlet weak var mSegmentControl: UISegmentedControl!
     
@@ -53,6 +126,9 @@ class ContentListViewController: UIViewController , ContentListViewObserver , UI
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // hide segmentStatusLabel
+        segmentStatusLabel.hidden = true
         
         // start animating activity indicator
         mActivityIndicator.startAnimating()
@@ -232,7 +308,7 @@ class ContentListViewController: UIViewController , ContentListViewObserver , UI
         contentViewModelObj.mTotalViews.bindTo(customCellObj.mContentCellTotalViews)
     }
     
-        
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()

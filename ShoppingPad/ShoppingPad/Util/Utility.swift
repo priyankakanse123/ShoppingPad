@@ -133,16 +133,15 @@ class Utility : UIViewController ,  MFMessageComposeViewControllerDelegate , PCo
                     // if image path not exist then return default image
                 else
                 {
-                    observer.next(UIImage (named: "loading.gif")!)
+                    observer.next(UIImage (named: "defaultImage.jpg")!)
                     observer.success()
                 }
-                
                 
             }
             // if response is nil then execute this block
             return BlockDisposable
-                {
-                    //request.cancel()
+            {
+                //request.cancel()
             }
         }
         
@@ -166,8 +165,8 @@ class Utility : UIViewController ,  MFMessageComposeViewControllerDelegate , PCo
         zeroAddress.sin_family = sa_family_t(AF_INET)
         
         let defaultRouteReachability = withUnsafePointer(&zeroAddress)
-            {
-                SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
         }
         var flags = SCNetworkReachabilityFlags()
         

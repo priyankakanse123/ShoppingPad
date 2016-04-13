@@ -127,6 +127,7 @@ class ContentListDBHandler {
         print("IN LOCALDB VIEW")
         
         let contentDB = FMDatabase(path : mDatabasePath as String)
+        print(mDatabasePath)
         
         if contentDB == nil
         {
